@@ -11,24 +11,38 @@ Anyway you can add the **HyperResponseServiceProvider** in `app/config/app.php`:
 
 ## Usage
 
+For the HAL response:
+
 ```php
 $hal_data = array(
-            	'message'         => 'Welcome to the App API!',
-            	'_links'        => array(
-                	'self' => array(
-                    	'href'  => URL::to('/', array(), false),
-                    	'title'  => 'You have arrived.'
+            	'message'	=> 'Welcome to the App API!',
+            	'_links'	=> array(
+                	'self'	=> array(
+                    	'href'	=> URL::to('/', array(), false),
+                    	'title'	=> 'You have arrived.'
                 	),
-                	'content' => array(
-                    	'href'  => 'http://stateless.co/hal_specification.html',
-                    	'title'  => 'content type: application/hal+json'
+                	'content'	=> array(
+                    	'href'	=> 'http://stateless.co/hal_specification.html',
+                    	'title'	=> 'content type: application/hal+json'
                 	),
-                	'api-problem' => array(
-                   		'href'  => 'http://tools.ietf.org/html/draft-nottingham-http-problem-04',
-                    	'title'  => 'api-problem type: application/api-problem+json'
+                	'api-problem'	=> array(
+                   		'href'	=> 'http://tools.ietf.org/html/draft-nottingham-http-problem-04',
+                    	'title'	=> 'api-problem type: application/api-problem+json'
                 	),
             	)
         	);
 
 Response::hal($hal_data);
+```
+
+For the ApiProblem response:
+
+```php
+$apiproblem_data = array(
+                    'detail'    => 'Your requested resource was not found.',
+                    'instance'  => Request::url(),
+                    'code'      => 404
+                   );
+
+Response::apiProblem($apiproblem_data, 404);
 ```
