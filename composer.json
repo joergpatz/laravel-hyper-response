@@ -1,0 +1,29 @@
+{
+    "name": "joergpatz/laravel-hyper-response",
+    "type": "library",
+    "description": "api hypermedia response for laravel",
+    "keywords": ["laravel","api","response","hypermedia","hal","apiproblem"],
+    "license": "GPL v3",
+    "authors": [
+        {
+            "name": "Jörg Patzer",
+            "email": "joerg.patzer@me.com",
+            "homepage": "http://endofline.ws",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.7",
+        "illuminate/support": "4.1.*",
+        "nocarrier/hal": "0.9.*",
+        "crell/api-problem": "*"
+    },
+    "autoload": {
+        "classmap": [
+        ],
+        "psr-0": {
+            "Joergpatz\\HyperResponse": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
